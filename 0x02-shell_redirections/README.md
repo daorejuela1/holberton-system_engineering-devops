@@ -1,0 +1,1 @@
+Here you can check info in common commands for shell reverse
