@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1 -ap | grep "/" | wc -l
+ls -1 -Ap | grep "/" | wc -l
