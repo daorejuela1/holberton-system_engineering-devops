@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | sort | cut -f 1 | uniq -c | sort -nr | head -n 11
