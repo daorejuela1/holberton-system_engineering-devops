@@ -1,2 +1,2 @@
 #!/bin/bash
-cat acrostic | cut -c -1 | paste -d "" -s
+cat | cut -c -1 | paste -d "" -s
