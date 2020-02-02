@@ -1,2 +1,2 @@
 #!/bin/bash
-ls --sort=t | cat
+ls --sort=t | cat | head

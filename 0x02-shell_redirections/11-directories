@@ -1,2 +1,2 @@
 #!/bin/bash
-du | cat | wc -l
+ls -1 -p | grep "/" | wc -l
