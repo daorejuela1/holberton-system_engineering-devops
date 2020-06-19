@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This file reads apache logs using awk
+filename="apache-access.log"
+awk -F " " '{ print $1" "$9}' $filename | sort | uniq -c | sort -rn
