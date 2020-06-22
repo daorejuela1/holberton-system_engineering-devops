@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Shows all running proces
+# shellcheck disable=SC2009f
+ps -aux -f | while read i; do
+	if [[ $i == *"bash"* ]]
+	then
+		echo "$i"
+	fi
+done
