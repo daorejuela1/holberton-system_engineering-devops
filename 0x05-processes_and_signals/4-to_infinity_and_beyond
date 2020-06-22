@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+# creates an infinite loop
+while [[ 1 ]]
+do
+	echo "To infinity and beyond"
+done
