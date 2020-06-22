@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+# kills the process of to_infinite and beyond
+my_PID=$(pgrep -f "4-to_infinity_and_beyond")
+kill "$my_PID"
