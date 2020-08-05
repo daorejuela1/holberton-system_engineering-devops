@@ -31,5 +31,11 @@ server {
                 try_files $uri $uri/ =404;
         }
 
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        location = /custom_404.html { root /usr/share/nginx/html;internal;}
+        location = /custom_404.html { root/usr/share/nginx/html;internal;}
 	rewrite /redirect_me/   https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 }
