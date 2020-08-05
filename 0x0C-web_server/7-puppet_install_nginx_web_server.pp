@@ -8,7 +8,7 @@ name   => 'nginx',
 file {'/usr/share/nginx/html/index.html':
 ensure  =>  present,
 path    => '/usr/share/nginx/html/index.html',
-content => 'Holberton School for the win yeah!',
+content => 'Holberton School for the win yeah!\n',
 }
 
 file {'/usr/share/nginx/html/custom_404.html':
@@ -20,7 +20,7 @@ content => "Ceci n'est pas une page",
 file_line {'add redirect':
 path    => '/etc/nginx/sites-available/default',
 replace => true,
-line    => 'rewrite /redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+line    => '	rewrite /redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 match   => '# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000',
 }
 
