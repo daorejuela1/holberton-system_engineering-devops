@@ -38,7 +38,7 @@ line    => 'location = /custom_404.html { root /usr/share/nginx/html;internal; }
 match   => '#location ~ /\.ht {',
 }
 
-service { 'run nginx':
+service { 'nginx':
 ensure  => running,
 require => Package['nginx'],
 }
