@@ -18,10 +18,10 @@ content => "Ceci n'est pas une page",
 }
 
 file_line {'add redirect':
-ensure => present,
-path   => '/etc/nginx/sites-available/default',
-after  => '#error_page 404 /404.html;',
-line   => 'rewrite /redirect_me/   https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+path    => '/etc/nginx/sites-available/default',
+replace => true,
+line    => 'rewrite /redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+match   => '# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000',
 }
 
 file_line {'add error redirect 1':
