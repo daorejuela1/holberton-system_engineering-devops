@@ -19,13 +19,6 @@ path    => '/usr/share/nginx/html/index.html',
 content => 'Holberton School for the win yeah!\n',
 }
 
-file {'/usr/share/nginx/html/custom_404.html':
-ensure  => present,
-path    => '/usr/share/nginx/html/custom_404.html',
-content => "Ceci n'est pas une page",
-notify  => Service['nginx'],
-}
-
 file_line {'add redirect':
 ensure  => present,
 path    => '/etc/nginx/sites-available/default',
