@@ -13,9 +13,9 @@ require    => Package['nginx'],
 subscribe  => File_line["add redirect"],
 }
 
-file {'/usr/share/nginx/html/index.html':
+file {'/var/www/html/index.html':
 ensure  =>  present,
-path    => '/usr/share/nginx/html/index.html',
+path    => '/var/www/html/index.html',
 content => 'Holberton School for the win yeah!\n',
 }
 
