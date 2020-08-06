@@ -1,0 +1,80 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+p {
+	font-size: 20px;
+}
+
+.numbers{
+	background-color:cadetblue;
+}
+
+.wall {
+	background-color: aqua;
+	padding-bottom: 10px;
+}
+
+.miniwall{
+	background-color: azure;
+}
+
+.wall {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.numbers, .miniwall, .backspace {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.backspace{
+	background-color:cadetblue;
+}
+
+h1 {
+	font-size: 100px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: black;
+	writing-mode: horizontal-tb;
+	background: linear-gradient(45deg, cadetblue, aqua);
+	border-radius: 50%;
+}
+
+#title {
+	font-size: 45px;
+	color: black;
+	writing-mode: horizontal-tb;
+	background: linear-gradient(45deg, cadetblue, aqua);
+	border-radius: 50%;
+}
+.n1{
+	animation-name: bounce;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+.n2{
+	animation-name: bounce;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+.n3{
+	animation-name: bounce;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+@keyframes bounce {
+  60% {
+	-webkit-transform: translate(0, 100px) scale(1.5);
+	opacity: 0.5;
+	text-shadow: 0px 150px 10px rgba(0, 0, 0, 0.8);
+  }
+}
