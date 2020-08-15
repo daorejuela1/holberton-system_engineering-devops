@@ -2,21 +2,14 @@
 
 exec { '/usr/bin/env apt-get -y update':}
 ->package {'nginx':
-ensure => present,
-name   => 'nginx',
+ensure => installed,
 }
 
 ->service { 'nginx':
 ensure     => running,
-enable     => true,
-hasrestart => true,
-require    => Package['nginx'],
-subscribe  => File_line['add protocol'],
 }
 
 ->file {'/var/www/html/index.html':
-ensure  =>  present,
-path    => '/var/www/html/index.html',
 content => 'Holberton School for the win yeah!\n',
 }
 
