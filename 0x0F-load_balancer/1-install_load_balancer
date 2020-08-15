@@ -1,1 +1,20 @@
 #!/usr/bin/env bash
+# install nginx in a new server
+sudo apt update
+sudo apt install -y haproxy
+
+
+OUT=/etc/haproxy/haproxy.cfg
+  
+cat <<EOF >$OUT
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 1475-web-01 35.196.49.136:80 check
+   server 1475-web-02 107.23.126.192:80 check
+EOF
+sudo systemctl restart haproxy

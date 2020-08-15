@@ -1,0 +1,9 @@
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server <server1 name> <private IP 1>:80 check
+   server <server2 name> <private IP 2>:80 check
