@@ -17,4 +17,4 @@ backend http_back
    server 1475-web-02 107.23.126.192:80 check
 EOF
 echo "ENABLED=1" >> /etc/default/haproxy
-sudo systemctl restart haproxy
+sudo service restart haproxy
