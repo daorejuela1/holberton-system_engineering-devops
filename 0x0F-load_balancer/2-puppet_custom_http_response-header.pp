@@ -1,7 +1,7 @@
 #This pupppet scripts assure an nginx installation
 
 exec { '/usr/bin/env apt-get -y update':}
-packag {'nginx':
+package {'nginx':
 ensure => present,
 name   => 'nginx',
 }
