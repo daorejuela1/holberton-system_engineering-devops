@@ -3,7 +3,6 @@
 sudo apt -y update
 sudo apt install -y haproxy
 
-
 OUT=/etc/haproxy/haproxy.cfg
   
 cat <<EOF >$OUT
@@ -17,4 +16,5 @@ backend http_back
    server 1475-web-01 35.196.49.136:80 check
    server 1475-web-02 107.23.126.192:80 check
 EOF
+echo "ENABLED=1" >> /etc/default/haproxy
 sudo systemctl restart haproxy
