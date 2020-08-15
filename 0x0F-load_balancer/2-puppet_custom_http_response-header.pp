@@ -1,5 +1,7 @@
 #This pupppet scripts assure an nginx installation
 
+exec { '/usr/bin/env apt-get -y update' : }
+
 package {'nginx':
 ensure => present,
 name   => 'nginx',
@@ -10,7 +12,7 @@ ensure     => running,
 enable     => true,
 hasrestart => true,
 require    => Package['nginx'],
-subscribe  => File_line["add redirect"],
+subscribe  => File_line["add protocol"],
 }
 
 file {'/var/www/html/index.html':
@@ -30,6 +32,6 @@ match   => '# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 file_line {'add protocol':
 ensure  => present,
 path    => '/etc/nginx/sites-available/default',
-line    => 'add_header X-Served-By "$HOSTNAME";',
-match   => 'listen 80 default_server;',
+after   => 'listen 80 default_server;',
+line    => "add_header X-Served-By ${HOSTNAME};",
 }
