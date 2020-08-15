@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# install nginx in a new server
-sudo apt update
+# install haproxy in a new server
+sudo apt -y update
 sudo apt install -y haproxy
 
 
