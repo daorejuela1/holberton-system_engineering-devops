@@ -5,7 +5,7 @@ sudo apt install -y haproxy
 
 OUT=/etc/haproxy/haproxy.cfg
   
-cat <<EOF >$OUT
+cat <<EOF >>$OUT
 frontend http_front
    bind *:80
    stats uri /haproxy?stats
@@ -17,4 +17,4 @@ backend http_back
    server 1475-web-02 107.23.126.192:80 check
 EOF
 echo "ENABLED=1" >> /etc/default/haproxy
-sudo service restart haproxy
+sudo service haproxy restart
