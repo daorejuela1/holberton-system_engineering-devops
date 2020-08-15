@@ -5,10 +5,6 @@ exec { '/usr/bin/env apt-get -y update':}
 ensure => installed,
 }
 
-->service { 'nginx':
-ensure     => running,
-}
-
 ->file {'/var/www/html/index.html':
 content => 'Holberton School for the win yeah!\n',
 }
@@ -18,4 +14,8 @@ ensure => present,
 path   => '/etc/nginx/sites-available/default',
 after  => 'listen 80 default_server;',
 line   => "\tadd_header X-Served-By ${hostname};",
+}
+
+->service { 'nginx':
+ensure     => running,
 }
