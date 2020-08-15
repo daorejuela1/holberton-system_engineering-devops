@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+# Script to fix multiple processes running nginx
+sudo pkill -f nginx
+sed -i "s/enabled/available/" /etc/nginx/nginx.conf
+sudo service nginx restart
