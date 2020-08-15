@@ -1,22 +1,20 @@
-#This pupppet scripts assure an nginx installation
-
-exec { '/usr/bin/env apt-get -y update':}
-package {'nginx':
+# Installs nginx n stuff
+exec { '/usr/bin/env apt-get -y update' : }
+package { 'nginx':
 ensure => installed,
-name   => 'nginx',
 }
 
-file {'/var/www/html/index.html':
-content => 'Holberton School for the win yeah!\n',
+file { '/var/www/html/index.html' :
+content => 'Holberton School!',
 }
 
-file_line {'add protocol':
+file_line { 'add header' :
 ensure => present,
 path   => '/etc/nginx/sites-available/default',
-after  => 'listen 80 default_server;',
 line   => "\tadd_header X-Served-By ${hostname};",
+after  => 'server_name _;',
 }
 
 service { 'nginx':
-ensure     => running,
+ensure => running,
 }
