@@ -13,7 +13,7 @@ if [[ $# == 1 ]]; then
 	done
 elif [[ $# == 2 ]]; then
 	# Have domain and sub domain
-	address=$(dig "$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $5)}')
+	address=$(dig $2."$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $5)}')
 	record=$(dig "$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $4)}')
 	print_template "$2" "$address" "$record"
 fi
