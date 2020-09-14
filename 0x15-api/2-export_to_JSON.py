@@ -18,7 +18,7 @@ def main():
                  format(number))
     tasks = requests.get(url_tasks).json()
     user_info = requests.get(url_user).json()
-    employee_name = user_info.get("name")
+    employee_name = user_info.get("username")
     user_list = []
     user_dict = {}
     for task in tasks:
