@@ -15,7 +15,7 @@ def main():
     users = requests.get(url_users).json()
     user_dict = {}
     for user in users:
-        employee_name = user.get("name")
+        employee_name = user.get("username")
         number = user.get("id")
         url_tasks = ("https://jsonplaceholder.typicode.com/users/{}/todos".
                      format(number))
