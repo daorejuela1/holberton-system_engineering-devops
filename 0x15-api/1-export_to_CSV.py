@@ -18,7 +18,7 @@ def main():
                  format(number))
     tasks = requests.get(url_tasks).json()
     user_info = requests.get(url_user).json()
-    employee_name = user_info.get("name")
+    employee_name = user_info.get("username")
     with open('{}.csv'.format(number), 'w') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
