@@ -24,7 +24,7 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                                      reverse=True)
             for element in sorted_by_value:
                 if (element[1] != 0):
-                        print("{}: {}".format(element[0], element[1])
+                    print("{}: {}".format(element[0], element[1]))
             return
         post_list = response.json().get('data').get('children')
         for children in post_list:
