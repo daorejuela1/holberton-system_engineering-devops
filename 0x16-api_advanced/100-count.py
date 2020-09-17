@@ -36,4 +36,5 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                     my_dict[word] = title1.lower().split().count(word.lower())
         return count_words(subreddit, word_list, after, my_dict)
     else:
-        return None
+        print()
+        return
