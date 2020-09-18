@@ -17,6 +17,8 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                             headers={'User-Agent': 'Pear'})
     if response and response.status_code == 200:
         post_list = response.json().get('data').get('children')
+        if len(post_list) == 0:
+            return
         for children in post_list:
             title1 = children.get('data').get('title')
             for word in word_list:
@@ -29,8 +31,8 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
             sorted_by_value = [w for w in my_dict.items()]
             sorted_by_value.sort(key=lambda w: (-w[1], w[0]))
             for element in sorted_by_value:
-                if (element[0] != 0):
-                    print("{}: {}".format(element[1], element[0]))
+                if (element[1] != 0):
+                    print("{}: {}".format(element[0], element[1]))
             return
         return count_words(subreddit, word_list, after, my_dict)
     else:
