@@ -21,8 +21,7 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
             return
         for children in post_list:
             title1 = children.get('data').get('title')
-            for word in set(word_list):
-                word = word.lower()
+            for word in word_list:
                 try:
                     my_dict[word] += title1.lower().split().count(word.lower())
                 except KeyError:
