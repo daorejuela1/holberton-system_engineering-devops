@@ -19,15 +19,15 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
         post_list = response.json().get('data').get('children')
         for children in post_list:
             title1 = children.get('data').get('title')
-            for word in set(word_list):
+            for word in word_list:
                 try:
                     my_dict[word] += title1.lower().split().count(word.lower())
                 except KeyError:
                     my_dict[word] = title1.lower().split().count(word.lower())
         after = response.json().get('data').get('after')
         if (after is None):
-            sorted_by_value = [(value, key) for key, value in my_dict.items()]
-            sorted_by_value.sort(reverse=True)
+            sorted_by_value = [w for w in my_dict.items()]
+            sorted_by_value.sort(key=lambda w: (-w[1], w[0]))
             for element in sorted_by_value:
                 if (element[0] != 0):
                     print("{}: {}".format(element[1], element[0]))
