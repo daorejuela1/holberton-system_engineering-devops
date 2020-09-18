@@ -28,7 +28,8 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                     my_dict[word] = title1.lower().split().count(word.lower())
         after = response.json().get('data').get('after')
         if (after is None):
-            sorted_by_value.sort(my_dict.items(), key=lambda w: (-w[1], w[0]))
+            sorted_by_value = [w for w in my_dict.items()]
+            sorted_by_value.sort(key=lambda w: (-w[1], w[0]))
             for element in sorted_by_value:
                 if (element[1] != 0):
                     print("{}: {}".format(element[0], element[1]))
