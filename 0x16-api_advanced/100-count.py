@@ -17,6 +17,9 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                             headers={'User-Agent': 'Pear'})
     if response and response.status_code == 200:
         post_list = response.json().get('data').get('children')
+        if len(post_list) == 0:
+            print()
+            return
         for children in post_list:
             title1 = children.get('data').get('title')
             for word in word_list:
@@ -36,5 +39,4 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
             return
         return count_words(subreddit, word_list, after, my_dict)
     else:
-        print()
         return
