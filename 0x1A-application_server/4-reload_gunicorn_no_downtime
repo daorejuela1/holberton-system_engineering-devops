@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Restart Gunicorn without downtime
+kill -HUP gunicorn
