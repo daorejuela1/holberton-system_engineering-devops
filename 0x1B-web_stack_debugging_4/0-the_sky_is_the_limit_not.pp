@@ -1,4 +1,4 @@
-# Ensures that the limit of open files for nginx is high
+#Ensures that the limit of open files for nginx is high
 exec { 'fix--for-nginx':
   path     => '/usr/bin:/usr/sbin:/bin',
   provider => shell,
