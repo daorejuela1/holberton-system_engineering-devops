@@ -1,3 +1,5 @@
+# Increments the ngix limit
+#
 exec { 'fix--for-nginx':
   path      => '/usr/bin:/usr/sbin:/bin',
   provider => shell,
