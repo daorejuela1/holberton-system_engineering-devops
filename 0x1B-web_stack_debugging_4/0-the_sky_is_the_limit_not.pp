@@ -1,5 +1,4 @@
 # Increments the ngix limit
-#
 exec { 'fix--for-nginx':
   path     => '/usr/bin:/usr/sbin:/bin',
   provider => shell,
@@ -8,6 +7,6 @@ exec { 'fix--for-nginx':
 }
 service { 'nginx' :
   ensure => 'running',
-  enable => 'true'
+  enable => true
 }
 
